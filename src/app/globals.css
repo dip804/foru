@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+:root {
+  --background: #070a17;
+  --foreground: #f6f2ec;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+
+  --color-midnight: #070a17;
+  --color-ink: #0b1028;
+  --color-ivory: #f6f2ec;
+  --color-mist: #d7d2cc;
+  --color-rose: #e6b7a3;
+  --color-blush: #f1a9b6;
+  --color-peach: #ffc7a3;
+  --color-gold: #ffcf9b;
+  --color-lavender: #b8a7ff;
+  --color-aurora: #6ee7ff;
+
+  --shadow-glow-rose: 0 0 0 1px color-mix(in oklab, var(--color-rose) 20%, transparent),
+    0 20px 60px -20px color-mix(in oklab, var(--color-rose) 30%, transparent);
+  --shadow-glow-blush: 0 0 0 1px color-mix(in oklab, var(--color-blush) 18%, transparent),
+    0 20px 60px -20px color-mix(in oklab, var(--color-blush) 26%, transparent);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: linear-gradient(180deg, #060814 0%, #070a17 50%, #050615 100%);
+    color: var(--foreground);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman",
+      Times, serif;
+  }
+
+  .glass {
+    background: color-mix(in oklab, var(--color-ivory) 7%, transparent);
+    border: 1px solid color-mix(in oklab, var(--color-ivory) 12%, transparent);
+    backdrop-filter: blur(18px);
+  }
+
+  .glass-strong {
+    background: color-mix(in oklab, var(--color-ivory) 10%, transparent);
+    border: 1px solid color-mix(in oklab, var(--color-ivory) 14%, transparent);
+    backdrop-filter: blur(20px);
+  }
+
+  .ring-soft {
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-ivory) 12%, transparent);
+  }
+
+  .text-shimmer {
+    background: linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--color-ivory) 65%, transparent),
+      color-mix(in oklab, var(--color-rose) 90%, white),
+      color-mix(in oklab, var(--color-ivory) 65%, transparent)
+    );
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 6s ease-in-out infinite;
+  }
+
+  .noisy {
+    position: relative;
+  }
+
+  .noisy::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+    border-radius: inherit;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes slow-drift {
+    0% {
+      transform: translate3d(-1.5%, -1%, 0) scale(1.06);
+    }
+    50% {
+      transform: translate3d(1.5%, 1%, 0) scale(1.06);
+    }
+    100% {
+      transform: translate3d(-1.5%, -1%, 0) scale(1.06);
+    }
+  }
+
+  @keyframes haze {
+    0% {
+      transform: translate3d(-2%, 0, 0);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translate3d(2%, 0, 0);
+      opacity: 0.75;
+    }
+    100% {
+      transform: translate3d(-2%, 0, 0);
+      opacity: 0.6;
+    }
+  }
+
+  .cinematic-title {
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25),
+      0 24px 90px rgba(255, 207, 155, 0.08),
+      0 14px 60px rgba(241, 169, 182, 0.09);
+  }
+
+  .cinematic-card {
+    background:
+      radial-gradient(
+        120% 120% at 18% 8%,
+        rgba(255, 207, 155, 0.10),
+        transparent 55%
+      ),
+      radial-gradient(
+        120% 120% at 82% 88%,
+        rgba(241, 169, 182, 0.08),
+        transparent 58%
+      ),
+      linear-gradient(180deg, rgba(11, 16, 40, 0.70), rgba(11, 16, 40, 0.44));
+    border: 1px solid rgba(246, 242, 236, 0.14);
+    backdrop-filter: blur(22px);
+    box-shadow:
+      0 0 0 1px rgba(241, 169, 182, 0.05),
+      0 26px 80px -60px rgba(0, 0, 0, 0.78),
+      0 0 80px -50px rgba(255, 207, 155, 0.22);
+  }
+
+  .vignette {
+    background: radial-gradient(
+      1200px 720px at 45% 35%,
+      rgba(0, 0, 0, 0) 55%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+  }
+
+  .star-dust {
+    background-image:
+      radial-gradient(rgba(246, 242, 236, 0.75) 1px, transparent 1px),
+      radial-gradient(rgba(255, 207, 155, 0.45) 1px, transparent 1px),
+      radial-gradient(rgba(241, 169, 182, 0.45) 1px, transparent 1px);
+    background-size: 160px 160px, 220px 220px, 300px 300px;
+    background-position: 0 0, 60px 40px, 120px 80px;
+    filter: blur(0.2px);
+    opacity: 0.22;
+  }
+}

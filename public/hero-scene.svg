@@ -1,0 +1,235 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#04071A"/>
+      <stop offset="0.42" stop-color="#100A2B"/>
+      <stop offset="0.76" stop-color="#26103A"/>
+      <stop offset="1" stop-color="#100814"/>
+    </linearGradient>
+
+    <radialGradient id="leftNight" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(190 360) rotate(6) scale(900 760)">
+      <stop stop-color="#03061B" stop-opacity="0.98"/>
+      <stop offset="0.62" stop-color="#05081F" stop-opacity="0.86"/>
+      <stop offset="1" stop-color="#05081F" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="sunsetGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(1260 630) rotate(124) scale(760 620)">
+      <stop stop-color="#FFB277" stop-opacity="0.72"/>
+      <stop offset="0.36" stop-color="#FF8C72" stop-opacity="0.42"/>
+      <stop offset="0.72" stop-color="#D35A7D" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#D35A7D" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="roseMist" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(1120 340) rotate(90) scale(400 540)">
+      <stop stop-color="#FFC4D4" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#FFC4D4" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="goldMist" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(1320 760) rotate(90) scale(200 760)">
+      <stop stop-color="#FFD09A" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#FFD09A" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="road" x1="800" y1="450" x2="800" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#170F28" stop-opacity="0"/>
+      <stop offset="0.16" stop-color="#160F27" stop-opacity="0.50"/>
+      <stop offset="0.62" stop-color="#0A0B1B" stop-opacity="0.88"/>
+      <stop offset="1" stop-color="#060815" stop-opacity="1"/>
+    </linearGradient>
+
+    <linearGradient id="horizonLine" x1="770" y1="508" x2="770" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFDCAA" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#FFDCAA" stop-opacity="0"/>
+    </linearGradient>
+
+    <filter id="blur8" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <filter id="blur16" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+    <filter id="blur28" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+    <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="12" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <symbol id="heart" viewBox="0 0 120 110">
+      <path d="M60 102C56 99 13 71 6 36C1 12 19 1 34 1C46 1 56 7 60 17C64 7 74 1 86 1C101 1 119 12 114 36C107 71 64 99 60 102Z" fill="currentColor"/>
+    </symbol>
+
+    <g id="lampPost">
+      <rect x="-4" y="0" width="8" height="200" rx="4" fill="#191D2F"/>
+      <rect x="-7" y="-10" width="14" height="14" rx="7" fill="#232840"/>
+      <rect x="-12" y="-54" width="24" height="40" rx="8" fill="#211B1F"/>
+      <rect x="-9" y="-50" width="18" height="30" rx="6" fill="#FFDB98" fill-opacity="0.85"/>
+      <rect x="-15" y="-58" width="30" height="6" rx="3" fill="#20263A"/>
+      <circle cx="0" cy="-34" r="42" fill="#FFBF72" fill-opacity="0.28" filter="url(#blur16)"/>
+      <circle cx="0" cy="-34" r="66" fill="#FF8F66" fill-opacity="0.12" filter="url(#blur28)"/>
+    </g>
+
+    <g id="windowRow">
+      <rect x="0" y="0" width="14" height="20" rx="2" fill="#FFD498" fill-opacity="0.88"/>
+      <rect x="20" y="0" width="14" height="20" rx="2" fill="#FFB774" fill-opacity="0.70"/>
+      <rect x="40" y="0" width="14" height="20" rx="2" fill="#FFD498" fill-opacity="0.82"/>
+    </g>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect width="1600" height="900" fill="url(#leftNight)"/>
+  <rect width="1600" height="900" fill="url(#sunsetGlow)"/>
+  <rect width="1600" height="900" fill="url(#roseMist)"/>
+  <rect width="1600" height="900" fill="url(#goldMist)"/>
+
+  <!-- star field -->
+  <g opacity="0.9">
+    <circle cx="1020" cy="120" r="2.8" fill="#FFD9B6"/>
+    <circle cx="1110" cy="188" r="2.2" fill="#FFE6C8"/>
+    <circle cx="1238" cy="154" r="2.4" fill="#FFD6A6"/>
+    <circle cx="1364" cy="102" r="1.8" fill="#FFD7B1"/>
+    <circle cx="1446" cy="140" r="2.2" fill="#FFB98F"/>
+    <circle cx="1160" cy="96" r="1.8" fill="#FFD6B7"/>
+    <circle cx="1318" cy="220" r="1.6" fill="#FFE5CA"/>
+    <circle cx="890" cy="170" r="1.6" fill="#FFC499"/>
+    <circle cx="960" cy="222" r="2" fill="#FFD9BF"/>
+    <circle cx="1492" cy="190" r="2.4" fill="#FFAD88"/>
+    <circle cx="1518" cy="110" r="2" fill="#FFD7BC"/>
+  </g>
+
+  <!-- soft sparkles -->
+  <g opacity="0.48" filter="url(#blur8)">
+    <circle cx="1210" cy="240" r="4" fill="#FFD8A8"/>
+    <circle cx="1286" cy="284" r="4" fill="#FFB88A"/>
+    <circle cx="1120" cy="310" r="5" fill="#FFD8A8"/>
+    <circle cx="1406" cy="268" r="4" fill="#FFD8A8"/>
+    <circle cx="1468" cy="212" r="5" fill="#FF9D79"/>
+    <circle cx="1068" cy="388" r="6" fill="#FFD8A8"/>
+    <circle cx="1330" cy="420" r="7" fill="#FFB58A"/>
+  </g>
+
+  <!-- tiny floating hearts -->
+  <g opacity="0.65">
+    <use href="#heart" x="905" y="182" width="16" height="15" style="color:#FF7A91"/>
+    <use href="#heart" x="1008" y="146" width="13" height="12" style="color:#FF98A8"/>
+    <use href="#heart" x="1126" y="224" width="18" height="16" style="color:#FF8FA2"/>
+    <use href="#heart" x="1260" y="180" width="13" height="12" style="color:#FF7A91"/>
+    <use href="#heart" x="1380" y="156" width="14" height="13" style="color:#FF8FA2"/>
+    <use href="#heart" x="1492" y="210" width="18" height="16" style="color:#FF7A91"/>
+    <use href="#heart" x="1170" y="328" width="12" height="11" style="color:#FF8FA2"/>
+    <use href="#heart" x="1328" y="350" width="15" height="14" style="color:#FF7A91"/>
+  </g>
+
+  <!-- glowing heart balloons -->
+  <g filter="url(#softGlow)">
+    <g transform="translate(1250 250) scale(1.05)" color="#F05172">
+      <use href="#heart" x="-60" y="-55" width="120" height="110"/>
+      <path d="M0 54C4 130 -4 188 -34 232C-58 266 -56 304 -22 340" stroke="#FF9FB2" stroke-opacity="0.7" stroke-width="3" fill="none"/>
+      <circle cx="0" cy="0" r="72" fill="#FF8A7A" fill-opacity="0.24" filter="url(#blur16)"/>
+    </g>
+    <g transform="translate(1108 402) scale(0.78)" color="#F45A7E">
+      <use href="#heart" x="-60" y="-55" width="120" height="110"/>
+      <path d="M0 54C2 114 8 166 -12 208C-24 236 -18 264 5 290" stroke="#FF9FB2" stroke-opacity="0.62" stroke-width="3" fill="none"/>
+      <circle cx="0" cy="0" r="64" fill="#FF9A86" fill-opacity="0.18" filter="url(#blur16)"/>
+    </g>
+    <g transform="translate(1336 486) scale(0.82)" color="#F45A7E">
+      <use href="#heart" x="-60" y="-55" width="120" height="110"/>
+      <path d="M0 54C-8 110 -4 160 24 204C48 244 58 274 42 306" stroke="#FF9FB2" stroke-opacity="0.6" stroke-width="3" fill="none"/>
+      <circle cx="0" cy="0" r="62" fill="#FF9A86" fill-opacity="0.17" filter="url(#blur16)"/>
+    </g>
+    <g transform="translate(1020 546) scale(0.58)" color="#F45A7E">
+      <use href="#heart" x="-60" y="-55" width="120" height="110"/>
+      <path d="M0 54C0 108 -8 148 -26 188C-40 216 -38 248 -14 280" stroke="#FF9FB2" stroke-opacity="0.56" stroke-width="3" fill="none"/>
+      <circle cx="0" cy="0" r="50" fill="#FF9A86" fill-opacity="0.15" filter="url(#blur16)"/>
+    </g>
+  </g>
+
+  <!-- right blossom cloud -->
+  <g filter="url(#blur8)" opacity="0.92">
+    <circle cx="1460" cy="360" r="6" fill="#FF6C84"/>
+    <circle cx="1486" cy="330" r="7" fill="#FF7D8D"/>
+    <circle cx="1500" cy="392" r="6" fill="#FF8B97"/>
+    <circle cx="1528" cy="348" r="7" fill="#FF8398"/>
+    <circle cx="1548" cy="412" r="6" fill="#FF748A"/>
+    <circle cx="1444" cy="430" r="7" fill="#FF8D99"/>
+    <circle cx="1470" cy="456" r="7" fill="#FF738B"/>
+    <circle cx="1502" cy="444" r="6" fill="#FF8598"/>
+    <circle cx="1540" cy="468" r="7" fill="#FF6C84"/>
+    <circle cx="1460" cy="500" r="7" fill="#FF7D8D"/>
+    <circle cx="1510" cy="518" r="8" fill="#FF8598"/>
+    <circle cx="1554" cy="520" r="6" fill="#FF708A"/>
+  </g>
+
+  <!-- skyline / buildings -->
+  <g>
+    <path d="M0 630C110 610 180 604 260 612C370 624 420 662 500 666C590 672 630 638 704 636C770 634 818 662 898 668C972 674 1036 648 1120 640C1220 630 1278 656 1368 660C1450 664 1516 652 1600 634V900H0Z" fill="#120D22"/>
+    <path d="M220 672L284 672L284 618L332 618L332 672L392 672L392 900L220 900Z" fill="#151124"/>
+    <path d="M630 682L712 682L712 610L758 568L804 610L804 682L886 682L886 900L630 900Z" fill="#1B1530"/>
+    <path d="M1314 672L1408 672L1408 600L1458 600L1458 672L1566 672L1566 900L1314 900Z" fill="#191329"/>
+    <path d="M154 720H466V900H154Z" fill="#171224"/>
+    <path d="M558 736H950V900H558Z" fill="#140F22"/>
+    <path d="M1228 720H1600V900H1228Z" fill="#150F21"/>
+  </g>
+
+  <!-- windows -->
+  <g opacity="0.82">
+    <use href="#windowRow" x="248" y="708"/>
+    <use href="#windowRow" x="248" y="742"/>
+    <use href="#windowRow" x="248" y="776"/>
+    <use href="#windowRow" x="340" y="708"/>
+    <use href="#windowRow" x="340" y="742"/>
+    <use href="#windowRow" x="666" y="724"/>
+    <use href="#windowRow" x="666" y="758"/>
+    <use href="#windowRow" x="756" y="724"/>
+    <use href="#windowRow" x="756" y="758"/>
+    <use href="#windowRow" x="846" y="724"/>
+    <use href="#windowRow" x="846" y="758"/>
+    <use href="#windowRow" x="1350" y="716"/>
+    <use href="#windowRow" x="1350" y="750"/>
+    <use href="#windowRow" x="1450" y="716"/>
+    <use href="#windowRow" x="1450" y="750"/>
+  </g>
+
+  <!-- boulevard / road -->
+  <path d="M540 900L720 520H880L1058 900H540Z" fill="url(#road)"/>
+  <path d="M796 518L806 900" stroke="url(#horizonLine)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M728 615C780 640 828 640 878 615" stroke="#FFD7A6" stroke-opacity="0.16" stroke-width="2"/>
+  <path d="M690 720C770 746 846 746 920 720" stroke="#FFD7A6" stroke-opacity="0.10" stroke-width="2"/>
+  <path d="M655 812C766 840 870 840 982 812" stroke="#FFD7A6" stroke-opacity="0.08" stroke-width="2"/>
+
+  <!-- lamp posts -->
+  <g opacity="0.96">
+    <g transform="translate(1170 794) scale(0.48)"><use href="#lampPost"/></g>
+    <g transform="translate(1264 748) scale(0.62)"><use href="#lampPost"/></g>
+    <g transform="translate(1352 686) scale(0.78)"><use href="#lampPost"/></g>
+    <g transform="translate(1470 616) scale(1.02)"><use href="#lampPost"/></g>
+    <g transform="translate(1072 814) scale(0.42)"><use href="#lampPost"/></g>
+    <g transform="translate(976 834) scale(0.34)"><use href="#lampPost"/></g>
+  </g>
+
+  <!-- reflections -->
+  <g opacity="0.72" filter="url(#blur8)">
+    <ellipse cx="803" cy="854" rx="320" ry="40" fill="#FFCC96" fill-opacity="0.10"/>
+    <ellipse cx="1170" cy="790" rx="24" ry="70" fill="#FFB96F" fill-opacity="0.16"/>
+    <ellipse cx="1264" cy="760" rx="20" ry="52" fill="#FFB96F" fill-opacity="0.14"/>
+    <ellipse cx="1352" cy="710" rx="18" ry="46" fill="#FFB96F" fill-opacity="0.12"/>
+    <ellipse cx="1470" cy="652" rx="24" ry="62" fill="#FFB96F" fill-opacity="0.18"/>
+  </g>
+
+  <!-- left side tiny hearts for hero balance -->
+  <g opacity="0.45">
+    <use href="#heart" x="168" y="292" width="12" height="11" style="color:#FF7A91"/>
+    <use href="#heart" x="248" y="224" width="10" height="9" style="color:#FF98A8"/>
+    <use href="#heart" x="324" y="346" width="13" height="12" style="color:#FF8FA2"/>
+    <use href="#heart" x="446" y="282" width="11" height="10" style="color:#FF7A91"/>
+    <use href="#heart" x="520" y="398" width="13" height="12" style="color:#FF8FA2"/>
+  </g>
+</svg>
