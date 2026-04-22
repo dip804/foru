@@ -18,13 +18,32 @@ export default function BgmPlayer({
   className,
 }: Props) {
   const audioRef = React.useRef<HTMLAudioElement | null>(null);
-  const [enabled, setEnabled] = React.useState(() => {
+  const subscribeToEnabled = React.useCallback((onStoreChange: () => void) => {
+    const onStorage = (event: StorageEvent) => {
+      if (event.key === STORAGE_KEY) onStoreChange();
+    };
+
+    window.addEventListener("storage", onStorage);
+    window.addEventListener("bgm_pref_change", onStoreChange);
+    return () => {
+      window.removeEventListener("storage", onStorage);
+      window.removeEventListener("bgm_pref_change", onStoreChange);
+    };
+  }, []);
+
+  const getEnabledSnapshot = React.useCallback(() => {
     try {
       return localStorage.getItem(STORAGE_KEY) === "1";
     } catch {
       return false;
     }
-  });
+  }, []);
+
+  const enabled = React.useSyncExternalStore(
+    subscribeToEnabled,
+    getEnabledSnapshot,
+    () => false,
+  );
   const [playing, setPlaying] = React.useState(false);
 
   const syncState = React.useCallback(() => {
@@ -54,12 +73,12 @@ export default function BgmPlayer({
   }, []);
 
   const setPersistedEnabled = React.useCallback((value: boolean) => {
-    setEnabled(value);
     try {
       localStorage.setItem(STORAGE_KEY, value ? "1" : "0");
     } catch {
       // ignore
     }
+    window.dispatchEvent(new Event("bgm_pref_change"));
   }, []);
 
   const onToggle = React.useCallback(async () => {
@@ -68,9 +87,13 @@ export default function BgmPlayer({
       await play();
       return;
     }
+    if (!playing) {
+      await play();
+      return;
+    }
     setPersistedEnabled(false);
     pause();
-  }, [enabled, pause, play, setPersistedEnabled]);
+  }, [enabled, pause, play, playing, setPersistedEnabled]);
 
   // Try to start as soon as the user interacts (required by browsers).
   React.useEffect(() => {
@@ -112,8 +135,8 @@ export default function BgmPlayer({
           "hover:bg-[rgba(11,16,40,0.55)] hover:border-ivory/18",
           "focus:outline-none focus:ring-2 focus:ring-gold/35",
         )}
-        aria-pressed={enabled}
-        aria-label={enabled ? "Pause background music" : "Play background music"}
+        aria-pressed={playing}
+        aria-label={playing ? "Pause background music" : "Play background music"}
       >
         <span className="grid h-8 w-8 place-items-center rounded-full bg-ivory/8 ring-1 ring-ivory/12">
           {enabled && playing ? (
